@@ -24,9 +24,6 @@ def check_win(board, player):
         return True
     return False
 
-def check_tie(board):
-    return all(space != ' ' for space in board)
-
 def get_player_move(board):
     while True:
         move = input("Enter your move (1-9): ")
@@ -113,7 +110,7 @@ def play_game():
                 print("You lose!")
             return
 
-        if check_tie(board):
+        if all(space != ' ' for space in board):
             display_board(board)
             print("It's a tie!")
             return
